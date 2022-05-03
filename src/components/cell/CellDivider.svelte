@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { slide } from "svelte/transition";
   import FaPlus from "svelte-icons/fa/FaPlus.svelte";
 
   const dispatch = createEventDispatcher();
@@ -13,7 +14,7 @@
   ];
 </script>
 
-<div class="divider" class:visible>
+<div class="divider" class:visible transition:slide>
   <hr />
   {#each types as { type, label }}
     <button on:click={() => dispatch("create", { type })} tabindex="-1">

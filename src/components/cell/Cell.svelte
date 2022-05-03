@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
+  import { slide } from "svelte/transition";
   import FaChevronDown from "svelte-icons/fa/FaChevronDown.svelte";
   import FaChevronRight from "svelte-icons/fa/FaChevronRight.svelte";
   import FaTrashAlt from "svelte-icons/fa/FaTrashAlt.svelte";
@@ -14,7 +14,7 @@
   export let state: CellState;
 </script>
 
-<div class="cell" transition:fade>
+<div class="cell" transition:slide>
   <button class="sidebar" on:click={() => dispatch("toggle")}>
     <div class="w-4 h-4">
       {#if state.hidden}
@@ -39,7 +39,7 @@
 
 <style lang="postcss">
   .cell {
-    @apply relative min-h-[32px] my-0;
+    @apply relative my-0; /*  min-h-[32px] */
   }
 
   .cell:hover .sidebar {
